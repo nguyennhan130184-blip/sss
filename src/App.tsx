@@ -463,10 +463,13 @@ export default function App() {
       {/* Sidebar */}
       <aside className="w-72 bg-white border-r border-slate-200 p-6 flex flex-col gap-8">
         <div className="flex items-center gap-3 px-2">
-          <div className="bg-emerald-600 p-2 rounded-lg text-white">
-            <Box size={24} />
-          </div>
-          <h1 className="text-xl font-bold tracking-tight">SteelERP</h1>
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_Petrovietnam.svg/320px-Logo_Petrovietnam.svg.png" 
+            alt="PetroVietnam Logo" 
+            className="h-10 w-auto object-contain"
+            referrerPolicy="no-referrer"
+          />
+          <h1 className="text-xl font-bold tracking-tight text-emerald-800">PetroVietnam</h1>
         </div>
 
         <nav className="flex flex-col gap-2">
@@ -506,7 +509,7 @@ export default function App() {
               <input 
                 type="text" 
                 placeholder="Tìm kiếm..." 
-                className="pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all w-64"
+                className="pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all w-64"
               />
             </div>
             <button className="bg-white border border-slate-200 p-2.5 rounded-xl text-slate-600 hover:bg-slate-50 transition-colors">
@@ -537,7 +540,7 @@ export default function App() {
 
               <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
                 <div className="flex justify-between items-start mb-4">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl">
+                  <div className="p-3 bg-emerald-50 text-emerald-600 rounded-2xl">
                     <Box size={24} />
                   </div>
                 </div>
@@ -644,7 +647,7 @@ export default function App() {
                           <td className="px-6 py-4 font-bold">{p.name}</td>
                           <td className="px-6 py-4">
                             <span className={`px-2 py-1 rounded-lg text-xs font-bold uppercase ${
-                              p.type === 'trading' ? 'bg-blue-50 text-blue-600' : 'bg-purple-50 text-purple-600'
+                              p.type === 'trading' ? 'bg-emerald-50 text-emerald-600' : 'bg-purple-50 text-purple-600'
                             }`}>
                               {p.type === 'trading' ? 'Thương mại' : 'Sản xuất'}
                             </span>
@@ -674,7 +677,7 @@ export default function App() {
                                   setNewUnits(p.units.map(u => ({ unit_name: u.unit_name, conversion_factor: u.conversion_factor, price: u.price })));
                                   setIsEditModalOpen(true);
                                 }}
-                                className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                                className="p-2 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                                 title="Chỉnh sửa sản phẩm"
                               >
                                 <Edit2 size={18} />
@@ -1268,7 +1271,7 @@ export default function App() {
                             <tr key={i} className="text-sm">
                               <td className="py-4 font-medium text-slate-900">{item.name}</td>
                               <td className="py-4 text-slate-600">{item.quantity} {item.base_unit}</td>
-                              <td className="py-4 text-right font-bold text-blue-600">{item.estimated_value.toLocaleString()} VNĐ</td>
+                              <td className="py-4 text-right font-bold text-emerald-600">{item.estimated_value.toLocaleString()} VNĐ</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1300,7 +1303,7 @@ export default function App() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
                   <label className="block text-sm font-semibold mb-1">Tên sản phẩm</label>
-                  <input name="name" required className="w-full px-4 py-2 border rounded-xl" placeholder="Ví dụ: Sắt Phi 12" />
+                  <input name="name" required className="w-full px-4 py-2 border rounded-xl" placeholder="Ví dụ: Barite API DMC" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-1">Loại</label>
@@ -1423,7 +1426,7 @@ export default function App() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
                   <label className="block text-sm font-semibold mb-1">Tên sản phẩm</label>
-                  <input name="name" defaultValue={editingProduct.name} required className="w-full px-4 py-2 border rounded-xl" placeholder="Ví dụ: Sắt Phi 12" />
+                  <input name="name" defaultValue={editingProduct.name} required className="w-full px-4 py-2 border rounded-xl" placeholder="Ví dụ: Xi măng G" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-1">Loại</label>
@@ -1522,7 +1525,7 @@ export default function App() {
               </div>
               <div className="flex gap-3 pt-4">
                 <button type="button" onClick={() => { setIsEditModalOpen(false); setEditingProduct(null); }} className="flex-1 px-6 py-3 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all">Hủy</button>
-                <button type="submit" className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">Lưu thay đổi</button>
+                <button type="submit" className="flex-1 px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200">Lưu thay đổi</button>
               </div>
             </form>
           </motion.div>
@@ -1549,7 +1552,7 @@ export default function App() {
                 <select 
                   name="productId" 
                   required
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 >
                   <option value="">Chọn sản phẩm...</option>
                   {products.filter(p => p.type === 'manufactured').map(p => (
@@ -1565,7 +1568,7 @@ export default function App() {
                   required 
                   min="1"
                   placeholder="Nhập số lượng..."
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 />
               </div>
               <div className="p-4 bg-amber-50 rounded-2xl border border-amber-100 flex gap-3">
@@ -1604,7 +1607,7 @@ export default function App() {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Chọn khách hàng</label>
                 <select 
                   name="customerId" 
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 >
                   <option value="">Khách lẻ (Không lưu tên)</option>
                   {customers.map(c => (
@@ -1624,7 +1627,7 @@ export default function App() {
                     const form = e.target.form as HTMLFormElement;
                     updateSalesTotal(form);
                   }}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 >
                   <option value="">Chọn sản phẩm...</option>
                   {products.map(p => (
@@ -1646,7 +1649,7 @@ export default function App() {
                     const form = e.target.form as HTMLFormElement;
                     updateSalesTotal(form);
                   }}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 />
               </div>
 
@@ -1658,7 +1661,7 @@ export default function App() {
                     const form = e.target.form as HTMLFormElement;
                     updateSalesTotal(form);
                   }}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 >
                   <option value="">Đơn vị gốc ({selectedProduct?.base_unit})</option>
                   {selectedProduct?.units.map(u => (
@@ -1682,7 +1685,7 @@ export default function App() {
                         const form = e.target.form as HTMLFormElement;
                         updateSalesTotal(form);
                       }}
-                      className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                      className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                     />
                   </div>
                   <div>
@@ -1705,7 +1708,7 @@ export default function App() {
                         const form = e.target.form as HTMLFormElement;
                         updateSalesTotal(form);
                       }}
-                      className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                      className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -1714,7 +1717,7 @@ export default function App() {
                   name="totalPrice" 
                   required 
                   placeholder="Nhập giá trị..."
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all font-bold text-emerald-600 text-lg"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all font-bold text-emerald-600 text-lg"
                 />
               </div>
 
@@ -1752,7 +1755,7 @@ export default function App() {
                   required 
                   defaultValue={editingCustomer?.name}
                   placeholder="Nhập tên khách hàng..."
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -1763,7 +1766,7 @@ export default function App() {
                     name="phone" 
                     defaultValue={editingCustomer?.phone}
                     placeholder="090..."
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                   />
                 </div>
                 <div>
@@ -1773,7 +1776,7 @@ export default function App() {
                     name="email" 
                     defaultValue={editingCustomer?.email}
                     placeholder="example@mail.com"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                   />
                 </div>
               </div>
@@ -1784,7 +1787,7 @@ export default function App() {
                   defaultValue={editingCustomer?.address}
                   placeholder="Nhập địa chỉ..."
                   rows={2}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                 />
               </div>
               <div className="flex gap-3 pt-4">

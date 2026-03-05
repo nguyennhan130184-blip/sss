@@ -1,5 +1,5 @@
 {
-  "name": "Steel & Industrial Equipment Management System",
-  "description": "A comprehensive sales and inventory system for trading steel/motors and manufacturing industrial equipment with multi-unit support.",
+  "name": "PetroVietnam Inventory & Production Management",
+  "description": "Hệ thống quản lý kho và sản xuất chuyên dụng cho PetroVietnam, hỗ trợ đa đơn vị tính và định mức nguyên vật liệu (BOM).",
   "requestFramePermissions": []
 }

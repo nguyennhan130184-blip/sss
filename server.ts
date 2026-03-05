@@ -91,58 +91,90 @@ if (productCount.count === 0) {
   const insertUnit = db.prepare("INSERT INTO units (product_id, unit_name, conversion_factor, price) VALUES (?, ?, ?, ?)");
   const insertInventory = db.prepare("INSERT INTO inventory (product_id, quantity) VALUES (?, ?)");
 
-  // Trading items
-  const iron = insertProduct.run("Sắt Phi 10", "trading", "kg", 18000, "Sắt xây dựng").lastInsertRowid;
-  insertUnit.run(iron, "Tấn", 1000, 17500000);
-  insertUnit.run(iron, "Bó (50kg)", 50, 900000);
-  insertInventory.run(iron, 5000);
+  // Processed Products (Sản phẩm chế biến)
+  const cementG = insertProduct.run("Xi măng G", "manufactured", "kg", 12000, "Xi măng giếng khoan dầu khí").lastInsertRowid;
+  insertUnit.run(cementG, "Tấn", 1000, 11500000);
+  insertUnit.run(cementG, "Bao (50kg)", 50, 600000);
+  insertInventory.run(cementG, 10000);
 
-  const motor = insertProduct.run("Motor 3 Pha 5HP", "trading", "Cái", 4500000, "Motor công nghiệp").lastInsertRowid;
-  insertInventory.run(motor, 10);
+  const cementSunphat = insertProduct.run("Xi măng pooc lăng bền sun phát", "manufactured", "kg", 10500, "Xi măng chịu mặn, bền sun phát").lastInsertRowid;
+  insertUnit.run(cementSunphat, "Tấn", 1000, 10000000);
+  insertInventory.run(cementSunphat, 5000);
 
-  // Manufactured items
-  const table = insertProduct.run("Bàn Thép Công Nghiệp", "manufactured", "Cái", 2500000, "Bàn sản xuất tại xưởng").lastInsertRowid;
-  insertInventory.run(table, 5);
+  const cementGHSR = insertProduct.run("Xi măng G-HSR trộn cát (35% S8BWOC)", "manufactured", "kg", 15000, "Xi măng G-HSR pha trộn đặc biệt").lastInsertRowid;
+  insertUnit.run(cementGHSR, "Tấn", 1000, 14500000);
+  insertInventory.run(cementGHSR, 2000);
 
-  const fan = insertProduct.run("Quạt PCCC Công Suất Lớn", "manufactured", "Cái", 8000000, "Quạt phòng cháy chữa cháy").lastInsertRowid;
-  insertInventory.run(fan, 2);
+  const bentoniteAPI = insertProduct.run("Bentonite API", "manufactured", "kg", 8500, "Bentonite tiêu chuẩn API cho khoan dầu khí").lastInsertRowid;
+  insertUnit.run(bentoniteAPI, "Tấn", 1000, 8000000);
+  insertInventory.run(bentoniteAPI, 20000);
+
+  const bentoniteLocal = insertProduct.run("Bentonite nội địa", "manufactured", "kg", 6500, "Bentonite sản xuất trong nước").lastInsertRowid;
+  insertUnit.run(bentoniteLocal, "Tấn", 1000, 6000000);
+  insertInventory.run(bentoniteLocal, 15000);
+
+  const bentoniteCocNhoi = insertProduct.run("Bentonite khoan cọc nhồi", "manufactured", "kg", 5500, "Bentonite chuyên dụng cho cọc nhồi").lastInsertRowid;
+  insertUnit.run(bentoniteCocNhoi, "Tấn", 1000, 5000000);
+  insertInventory.run(bentoniteCocNhoi, 30000);
+
+  const silicaFlour = insertProduct.run("Silica Flour", "manufactured", "kg", 18000, "Bột Silica cho xi măng giếng khoan").lastInsertRowid;
+  insertUnit.run(silicaFlour, "Tấn", 1000, 17500000);
+  insertInventory.run(silicaFlour, 5000);
+
+  const biosafe = insertProduct.run("Biosafe", "manufactured", "kg", 45000, "Phụ gia dung dịch khoan thân thiện môi trường").lastInsertRowid;
+  insertInventory.run(biosafe, 1000);
+
+  const superLub = insertProduct.run("Super Lub", "manufactured", "Lít", 125000, "Chất bôi trơn hiệu suất cao cho cần khoan").lastInsertRowid;
+  insertUnit.run(superLub, "Phuy (200L)", 200, 24000000);
+  insertInventory.run(superLub, 500);
+
+  // Chemical Products (Hóa chất)
+  const barite = insertProduct.run("Barite API DMC", "trading", "kg", 4500, "Bột Barite tỷ trọng cao cho dung dịch khoan").lastInsertRowid;
+  insertUnit.run(barite, "Tấn", 1000, 4200000);
+  insertUnit.run(barite, "Bao (Jumbo 1.5T)", 1500, 6000000);
+  insertInventory.run(barite, 50000);
+
+  const kcl = insertProduct.run("Kali Clorua (KCl)", "trading", "kg", 12500, "Muối Kali Clorua công nghiệp").lastInsertRowid;
+  insertUnit.run(kcl, "Tấn", 1000, 12000000);
+  insertUnit.run(kcl, "Bao (50kg)", 50, 650000);
+  insertInventory.run(kcl, 20000);
+
+  const cacl2 = insertProduct.run("Canxi Clorua (CaCl2)", "trading", "kg", 9500, "Muối Canxi Clorua 95%").lastInsertRowid;
+  insertUnit.run(cacl2, "Tấn", 1000, 9000000);
+  insertInventory.run(cacl2, 15000);
+
+  const aceticAcid = insertProduct.run("Acid Acetic (CH3COOH)", "trading", "kg", 28000, "Acid Acetic nồng độ cao").lastInsertRowid;
+  insertUnit.run(aceticAcid, "Can (30kg)", 30, 850000);
+  insertInventory.run(aceticAcid, 3000);
+
+  const formicAcid = insertProduct.run("Acid Formic (HCOOH)", "trading", "kg", 32000, "Acid Formic công nghiệp").lastInsertRowid;
+  insertUnit.run(formicAcid, "Can (35kg)", 35, 1150000);
+  insertInventory.run(formicAcid, 2500);
+
+  const nacl = insertProduct.run("MUỐI NaCl", "trading", "kg", 3500, "Muối công nghiệp tinh khiết").lastInsertRowid;
+  insertUnit.run(nacl, "Tấn", 1000, 3200000);
+  insertInventory.run(nacl, 100000);
+
+  // Biocide Products
+  const bac0718 = insertProduct.run("BAC 0718", "trading", "kg", 55000, "Biocide non foaming - Chất diệt khuẩn không bọt").lastInsertRowid;
+  insertInventory.run(bac0718, 1000);
+
+  const dvcide2 = insertProduct.run("DV – CIDE 2", "trading", "kg", 52000, "Biocide non foaming - Chất diệt khuẩn không bọt").lastInsertRowid;
+  insertInventory.run(dvcide2, 800);
+
+  const pvbo21 = insertProduct.run("PV-BO 21", "trading", "kg", 48000, "Biocide foaming - Chất diệt khuẩn có bọt").lastInsertRowid;
+  insertInventory.run(pvbo21, 1200);
+
+  const dmccideb = insertProduct.run("DMC CIDE B", "trading", "kg", 46000, "Biocide foaming - Chất diệt khuẩn có bọt").lastInsertRowid;
+  insertInventory.run(dmccideb, 1500);
+
+  const dvcide1 = insertProduct.run("DV-CIDE 1", "trading", "kg", 44000, "Biocide foaming - Chất diệt khuẩn có bọt").lastInsertRowid;
+  insertInventory.run(dvcide1, 2000);
 
   // Initial Customers
-  db.prepare("INSERT INTO customers (name, phone, address) VALUES (?, ?, ?)").run("Công ty Xây dựng ABC", "0901234567", "Hà Nội");
-  db.prepare("INSERT INTO customers (name, phone, address) VALUES (?, ?, ?)").run("Cửa hàng Cơ khí Minh Phát", "0987654321", "TP.HCM");
-  db.prepare("INSERT INTO customers (name, phone, address) VALUES (?, ?, ?)").run("Tập đoàn Công nghiệp Việt", "0243123456", "Đà Nẵng");
-
-  // More Trading items
-  const steelCoil = insertProduct.run("Thép Cuộn CB240", "trading", "kg", 15500, "Thép cuộn xây dựng").lastInsertRowid;
-  insertUnit.run(steelCoil, "Tấn", 1000, 15200000);
-  insertInventory.run(steelCoil, 10000);
-
-  const pvcPipe = insertProduct.run("Ống Nhựa PVC Phi 21", "trading", "Cây", 45000, "Ống nhựa Tiền Phong 4m/cây").lastInsertRowid;
-  insertUnit.run(pvcPipe, "Bó (10 cây)", 10, 420000);
-  insertInventory.run(pvcPipe, 200);
-
-  const paint = insertProduct.run("Sơn Chống Rỉ", "trading", "Lít", 85000, "Sơn lót kim loại").lastInsertRowid;
-  insertUnit.run(paint, "Thùng (20L)", 20, 1600000);
-  insertInventory.run(paint, 100);
-
-  // More Manufactured items
-  const electricBox = insertProduct.run("Tủ Điện Công Nghiệp", "manufactured", "Cái", 12000000, "Tủ điều khiển hệ thống").lastInsertRowid;
-  insertInventory.run(electricBox, 3);
-
-  const firePump = insertProduct.run("Hệ Thống Bơm Cứu Hỏa", "manufactured", "Bộ", 45000000, "Hệ thống bơm chữa cháy tự động").lastInsertRowid;
-  insertInventory.run(firePump, 1);
-
-  // BOM for Table: needs 20kg of Iron
-  db.prepare("INSERT INTO bom (parent_product_id, component_product_id, quantity) VALUES (?, ?, ?)").run(table, iron, 20);
-  
-  // BOM for Electric Box: needs 50kg of Iron, 2 Motors
-  db.prepare("INSERT INTO bom (parent_product_id, component_product_id, quantity) VALUES (?, ?, ?)").run(electricBox, iron, 50);
-  db.prepare("INSERT INTO bom (parent_product_id, component_product_id, quantity) VALUES (?, ?, ?)").run(electricBox, motor, 2);
-
-  // BOM for Fire Pump: needs 100kg of Iron, 1 Motor, 5 PVC Pipes
-  db.prepare("INSERT INTO bom (parent_product_id, component_product_id, quantity) VALUES (?, ?, ?)").run(firePump, iron, 100);
-  db.prepare("INSERT INTO bom (parent_product_id, component_product_id, quantity) VALUES (?, ?, ?)").run(firePump, motor, 1);
-  db.prepare("INSERT INTO bom (parent_product_id, component_product_id, quantity) VALUES (?, ?, ?)").run(firePump, pvcPipe, 5);
+  db.prepare("INSERT INTO customers (name, phone, address) VALUES (?, ?, ?)").run("PVD Drilling", "02831234567", "Vũng Tàu");
+  db.prepare("INSERT INTO customers (name, phone, address) VALUES (?, ?, ?)").run("Vietsovpetro", "02543839871", "Vũng Tàu");
+  db.prepare("INSERT INTO customers (name, phone, address) VALUES (?, ?, ?)").run("PVEP", "02437726001", "Hà Nội");
 }
 
 async function startServer() {
